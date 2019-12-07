@@ -36,7 +36,7 @@ public class LadaRace : MonoBehaviour
     void Start()
     {
         obstacles = new List<GameObject>();
-        obstacles.Add(Instantiate(goal, new Vector3(length, goal.transform.position.y, goal.transform.position.z), goal.transform.rotation));
+        obstacles.Add(Instantiate(goal, new Vector3(length-5, goal.transform.position.y, goal.transform.position.z), goal.transform.rotation));
     }
 
     // Update is called once per frame
