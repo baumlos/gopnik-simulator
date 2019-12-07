@@ -6090,7 +6090,7 @@ MonoBehaviour:
   - {fileID: 4209952968247456532, guid: dba30927cd10af9488d9d54c880d121a, type: 3}
   - {fileID: 1062472785496746096, guid: 14f77e07d8a10934292a37fad50008f6, type: 3}
   minTimeTilFoodSpawn: 0.5
-  maxTimeTilFoodSpawn: 2
+  maxTimeTilFoodSpawn: 1.5
   endPoints:
   - {fileID: 1122841611}
   - {fileID: 1139842065}
