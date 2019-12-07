@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LadaRace : MonoBehaviour
+public class LadaRace2 : MonoBehaviour
 {
     // public GameObject player;
 
