@@ -19,7 +19,7 @@ public class OverWorld_Walking : MonoBehaviour
     [SerializeField]
     private float speedx;
     [SerializeField]
-    private float speedz;
+    private float speedy;
 
     [SerializeField]
     private float boundaryTop;
@@ -34,19 +34,15 @@ public class OverWorld_Walking : MonoBehaviour
     [SerializeField]
     private float boundaryCameraRight;
 
-    //public Quaternion r;
-
-    static private float camerax = 0, cameraz = -3.58f;
+    static private float camerax = 0, cameray = 0;
 
     private bool left = false;
-    static private float posx = 0, posz = 1.2f;
-
+    static private float posx = 0, posy = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        camera.transform.SetPositionAndRotation(new Vector3(camerax, 0, cameraz), new Quaternion(0.5735764f, 0, 0, 0.8191521f));
-        //r = camera.transform.rotation;
+        camera.transform.SetPositionAndRotation(new Vector3(camerax, cameray, -3.58f), new Quaternion(0, 0, 0, 1));
 
         /*GameObject[] tmp = new GameObject[AnimationParts.Length+1];
         for(int i=0; i<AnimationParts.Length; i++ )
@@ -62,8 +58,7 @@ public class OverWorld_Walking : MonoBehaviour
             AnimationParts[i].GetComponent<Renderer>().enabled = false;
         }
         AnimationParts[0].GetComponent<Renderer>().enabled = true;
-        GameObject.Find("PressEToEnterTheEvent").SetActive( false);
-        GameObject.Find("PressEToEnterTheEventLetter").SetActive(false);
+        GameObject.Find("PressEToEnterTheEvent!").GetComponent<Renderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -85,15 +80,15 @@ public class OverWorld_Walking : MonoBehaviour
                 camera.transform.SetPositionAndRotation(camera.transform.position + new Vector3(speedx, 0, 0), camera.transform.rotation);
             }
         }
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && gameObject.transform.position.z < boundaryTop)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && gameObject.transform.position.y < boundaryTop)
         {
-            posz += speedz;
+            posy += speedy;
         }
-        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && gameObject.transform.position.z > boundaryBot)
+        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && gameObject.transform.position.y > boundaryBot)
         {
-            posz -= speedz;
+            posy -= speedy;
         }
-        this.gameObject.transform.SetPositionAndRotation(new Vector3(posx, -4.682443f, posz), this.gameObject.transform.rotation);
+        this.gameObject.transform.SetPositionAndRotation(new Vector3(posx, posy, 0), this.gameObject.transform.rotation);
 
         //Animation
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
@@ -125,6 +120,6 @@ public class OverWorld_Walking : MonoBehaviour
     public void savePos()
     {
         camerax = camera.transform.position.x;
-        cameraz = camera.transform.position.z;
+        cameray = camera.transform.position.y;
     }
 }
