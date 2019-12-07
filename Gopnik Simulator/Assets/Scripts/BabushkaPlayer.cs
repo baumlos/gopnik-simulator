@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class BabushkaPlayer : MonoBehaviour
 {
+    enum State { playing, waiting}
+    State currentState = State.playing;
+
+
     public float speed;
     public int foodCaptured = 0;
     public LayerMask foodLayer;
@@ -17,6 +21,10 @@ public class BabushkaPlayer : MonoBehaviour
 
     public int live = 3;
     public int foodCapturedToWin;
+
+    [Header("Text to display")]
+    public Text winningText;
+    public Text losingText;
 
     
 
@@ -54,7 +62,9 @@ public class BabushkaPlayer : MonoBehaviour
 
             if(foodCaptured > foodCapturedToWin)
             {
+                winningText.enabled = true;
                 Debug.Log("You won");
+                StartCoroutine(ChangeToOverworld());
             }
         }
     }
@@ -65,12 +75,24 @@ public class BabushkaPlayer : MonoBehaviour
 
         if(live < 0)
         {
+            losingText.enabled = true;
+            StartCoroutine(ChangeToOverworld());
             Debug.Log("You lost");
         }
         else
         {
             vodkaBottles[live].enabled = false;
         }
+    }
+
+
+    IEnumerator ChangeToOverworld()
+    {
+        //maybe add some variables that shall be kept in here
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(3);
+        Time.timeScale = 1;
+        Debug.Log("Change to overworld here");
     }
 
 }

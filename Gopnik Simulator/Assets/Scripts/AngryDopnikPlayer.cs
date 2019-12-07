@@ -24,6 +24,10 @@ public class AngryDopnikPlayer : MonoBehaviour
     Rigidbody hookRigid;
     //bool hooked = true;
 
+        [Header("Text to display")]
+        public Text winningText;
+        public Text losingText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,7 +100,9 @@ public class AngryDopnikPlayer : MonoBehaviour
         live--;
         if (live < 0)
         {
+            losingText.enabled = true;
             Debug.Log("You lose");
+            StartCoroutine(ChangeToOverworld());
         }
         else
         {
@@ -116,11 +122,25 @@ public class AngryDopnikPlayer : MonoBehaviour
         if(other.tag == "Hole")
         {
             freezed = true; //do something with this
+            winningText.enabled = true;
+            StartCoroutine(ChangeToOverworld());
             Debug.Log("Should win here");
         } else if(other.tag == "Ice")
         {
             Reset();
         }
+    }
+
+
+    IEnumerator ChangeToOverworld()
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(3);
+
+        Time.timeScale = 1;
+
+        Debug.Log("Change to overworld here");
+        
     }
 
 }
