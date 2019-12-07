@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ice
-  - Hole
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -18,7 +16,7 @@ TagManager:
   - 
   - Feet
   - Ground
-  - Food
+  - 
   - 
   - 
   - 
