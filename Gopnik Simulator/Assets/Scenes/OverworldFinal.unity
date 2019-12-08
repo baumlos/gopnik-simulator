@@ -4503,7 +4503,7 @@ PrefabInstance:
       objectReference: {fileID: 692371404}
     - target: {fileID: 730638313, guid: 006fa09ee03f26b4d9b31b94f61915e3, type: 3}
       propertyPath: smoothTime
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 730638313, guid: 006fa09ee03f26b4d9b31b94f61915e3, type: 3}
       propertyPath: boundaryTop
@@ -4531,11 +4531,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 730638313, guid: 006fa09ee03f26b4d9b31b94f61915e3, type: 3}
       propertyPath: boundaryCameraLeft
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 730638313, guid: 006fa09ee03f26b4d9b31b94f61915e3, type: 3}
       propertyPath: boundaryCameraRight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6181485155689374878, guid: 006fa09ee03f26b4d9b31b94f61915e3,
         type: 3}

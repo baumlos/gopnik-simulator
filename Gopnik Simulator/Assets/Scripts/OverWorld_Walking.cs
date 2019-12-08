@@ -46,6 +46,9 @@ public class OverWorld_Walking : MonoBehaviour
     private bool left = false;
     static private float posx = 0, posz = 1.2f;
 
+    float direction = 0;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +77,36 @@ public class OverWorld_Walking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        direction += Random.Range(-1, 1);
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            torsoAnimator.SetBool("walking", true);
+            posz += speedz * Mathf.Sin(direction) * Random.Range(0, GlobalVariables.vodka_level / GlobalVariables.max_vodka_level);
+            posx += speedx * Mathf.Sin(direction) * Random.Range(0, GlobalVariables.vodka_level / GlobalVariables.max_vodka_level);
+            //if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && left == false)
+            //{
+            //    this.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            //    left = true;
+            //}
+            //if((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && left == true)
+            //{
+            //    this.gameObject.transform.localScale = new Vector3(1, 1, 1);
+            //    left = false;
+            //}
+            //timer++;
+            //if (timer % maxTimer == 0)
+            //{
+            //    AnimationParts[0].GetComponent<Renderer>().enabled = false;
+            //    AnimationParts[pointer++ % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = false;
+            //    AnimationParts[pointer % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = true;
+            //}
+        }
+        else
+        {
+            torsoAnimator.SetBool("walking", false);
+            //AnimationParts[pointer % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = false;
+            //AnimationParts[0].GetComponent<Renderer>().enabled = true;
+        }
         if((Input.GetKey(KeyCode.A) ||Input.GetKey(KeyCode.LeftArrow)) && gameObject.transform.position.x > boundaryLeft)
         {
             posx -= speedx;
@@ -106,32 +139,6 @@ public class OverWorld_Walking : MonoBehaviour
         this.gameObject.transform.SetPositionAndRotation(new Vector3(posx, transform.position.y, posz), this.gameObject.transform.rotation);
 
         //Animation
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-        {
-            torsoAnimator.SetBool("walking", true);
-            //if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && left == false)
-            //{
-            //    this.gameObject.transform.localScale = new Vector3(-1, 1, 1);
-            //    left = true;
-            //}
-            //if((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && left == true)
-            //{
-            //    this.gameObject.transform.localScale = new Vector3(1, 1, 1);
-            //    left = false;
-            //}
-            //timer++;
-            //if (timer % maxTimer == 0)
-            //{
-            //    AnimationParts[0].GetComponent<Renderer>().enabled = false;
-            //    AnimationParts[pointer++ % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = false;
-            //    AnimationParts[pointer % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = true;
-            //}
-        } else
-        {
-            torsoAnimator.SetBool("walking", false);
-            //AnimationParts[pointer % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = false;
-            //AnimationParts[0].GetComponent<Renderer>().enabled = true;
-        }
     }
 
     public void savePos()
