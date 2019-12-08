@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
     public GameObject ui_element_press_e;
-    [Range(0.0f, 1000.0f)]
-    public float vodkaLevel;
+
+    public float soberup_speed = 10;
     
     public Image vodkameter;
 
     private void Update() {
-        GlobalVariables.vodka_level = vodkaLevel;
+        GlobalVariables.vodka_level = GlobalVariables.vodka_level - soberup_speed * Time.deltaTime;// vodkaLevel;
         updateVodkaLevel();
 
     }
