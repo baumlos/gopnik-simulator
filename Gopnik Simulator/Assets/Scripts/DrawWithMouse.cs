@@ -43,7 +43,8 @@ public class DrawWithMouse : MonoBehaviour
         }
     }
 
-/*     private void OnGUI(){
-        GUI.DrawTexture(new Rect(0,0,256,256), splatMap, ScaleMode.ScaleToFit, false,1);
-    } */
+    //private void OnGUI()
+    //{
+    //    GUI.DrawTexture(new Rect(0, 0, 256, 256), splatMap, ScaleMode.ScaleToFit, false, 1);
+    //}
 }

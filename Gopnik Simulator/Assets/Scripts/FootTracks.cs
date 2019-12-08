@@ -14,6 +14,9 @@ public class FootTracks : MonoBehaviour
     public float brushSize;
     [Range(0, 1)]
     public float brushStrength;
+    [Range(0, 0.1f)]
+    public float stepLength;
+    public Vector2 stepDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -30,21 +33,28 @@ public class FootTracks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        DoTheFootprint();
     }
-    void OnTriggerEnter(Collider col)
+    public void DoTheFootprint()
     {
-        Debug.Log("HIT");
-        if (Physics.Raycast(transform.position, Vector3.down, out groundHit, 1f, layerMask))
+        if (Physics.Raycast(transform.position, Vector3.down, out groundHit, 5f, layerMask))
         {
-            Debug.Log("RaycastHit");
-            drawMaterial.SetVector("_Coordinate", new Vector4(groundHit.textureCoord.x, groundHit.textureCoord.y, 0, 0));
-            drawMaterial.SetFloat("_Strength", brushStrength);
-            drawMaterial.SetFloat("_Size", brushSize);
-            RenderTexture temp = RenderTexture.GetTemporary(splatMap.width, splatMap.height, 0, RenderTextureFormat.ARGBFloat);
-            Graphics.Blit(splatMap, temp);
-            Graphics.Blit(temp, splatMap, drawMaterial);
-            RenderTexture.ReleaseTemporary(temp);
+            stepDirection = stepDirection.normalized;
+            for(int i = -2; i <= 2; i++)
+            {
+                float tempFloatX = groundHit.textureCoord.x + (i * stepLength) * stepDirection.x;
+                float tempFloatY = groundHit.textureCoord.y + (i * stepLength) * stepDirection.y;
+                //Debug.Log("RaycastHit: "+ tempFloat);
+                Vector4 tempVector = new Vector4(tempFloatX, tempFloatY, 0, 0);
+
+                drawMaterial.SetVector("_Coordinate", tempVector);
+                drawMaterial.SetFloat("_Strength", brushStrength);
+                drawMaterial.SetFloat("_Size", brushSize);
+                RenderTexture temp = RenderTexture.GetTemporary(splatMap.width, splatMap.height, 0, RenderTextureFormat.ARGBFloat);
+                Graphics.Blit(splatMap, temp);
+                Graphics.Blit(temp, splatMap, drawMaterial);
+                RenderTexture.ReleaseTemporary(temp);
+            }
         }
     }
 }

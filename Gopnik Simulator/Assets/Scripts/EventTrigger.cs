@@ -6,15 +6,19 @@ using UnityEngine.SceneManagement;
 public class EventTrigger : MonoBehaviour
 {
     private bool active = false;
-    static private bool available = true;
+    private bool available = true;
 
     [SerializeField]
     private string scene;
 
+    GameUI GUI;
+    private void Start() {
+        GUI = FindObjectOfType<GameUI>();
+    }
     // Update is called once per frame
     void Update()
     {
-        if (active && Input.GetKey(KeyCode.E))
+      if (active && Input.GetKey(KeyCode.E))
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
@@ -32,7 +36,7 @@ public class EventTrigger : MonoBehaviour
         if(other.tag.Equals("Player") && available)
         {
             active = true;
-            GameObject.Find("PressEToEnterTheEvent!").GetComponent<Renderer>().enabled = true;
+            GUI.activatePressE();
         }
     }
 
@@ -41,7 +45,8 @@ public class EventTrigger : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             active = false;
-            GameObject.Find("PressEToEnterTheEvent!").GetComponent<Renderer>().enabled = false;
+            GUI.deactivatePressE();
+
         }
 
     }
