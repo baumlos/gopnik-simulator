@@ -12,7 +12,7 @@ public class GameUI : MonoBehaviour
     public Image vodkameter;
 
     private void Update() {
-        //GlobalVariables.vodka_level = vodkaLevel;
+        GlobalVariables.vodka_level = vodkaLevel;
         updateVodkaLevel();
 
     }
