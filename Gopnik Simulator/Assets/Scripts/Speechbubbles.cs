@@ -27,6 +27,7 @@ public class Speechbubbles : MonoBehaviour
             }
 
         }
+        else SetVisible(false);
             
     }
 

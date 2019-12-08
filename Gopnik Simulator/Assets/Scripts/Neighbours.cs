@@ -7,6 +7,7 @@ public class Neighbours : MonoBehaviour
     public static int count;
     private bool win = false;
     public GameObject[] bubbles;
+    public GameObject winScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +18,11 @@ public class Neighbours : MonoBehaviour
     void Update()
     {
 
-        if (count == 9)
+        if (count == 9 && !win)
         {
             win = true;
+            GlobalVariables.addVodka(200);
+            Instantiate(winScreen);
         }
     }
 
