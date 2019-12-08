@@ -23,8 +23,8 @@ public class BabushkaPlayer : MonoBehaviour
     public int foodCapturedToWin;
 
     [Header("Text to display")]
-    public Text winningText;
-    public Text losingText;
+    public GameObject winningScreen;
+    public GameObject losingScreen;
 
     
 
@@ -62,9 +62,10 @@ public class BabushkaPlayer : MonoBehaviour
 
             if(foodCaptured > foodCapturedToWin)
             {
-                winningText.enabled = true;
-                Debug.Log("You won");
-                StartCoroutine(ChangeToOverworld());
+                Time.timeScale = 0;
+                Instantiate(winningScreen);
+                //Debug.Log("You won");
+                //StartCoroutine(ChangeToOverworld());
             }
         }
     }
@@ -75,9 +76,10 @@ public class BabushkaPlayer : MonoBehaviour
 
         if(live < 0)
         {
-            losingText.enabled = true;
-            StartCoroutine(ChangeToOverworld());
-            Debug.Log("You lost");
+            Time.timeScale = 0;
+            Instantiate(losingScreen);
+            //StartCoroutine(ChangeToOverworld());
+            //Debug.Log("You lost");
         }
         else
         {
