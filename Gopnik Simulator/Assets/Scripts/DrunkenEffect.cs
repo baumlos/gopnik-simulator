@@ -8,7 +8,7 @@ public class DrunkenEffect : MonoBehaviour
     public float drunken_factor = 0.03f;
     private void OnRenderImage(RenderTexture source, RenderTexture destination) {
         float m = (GlobalVariables.vodka_level - GlobalVariables.max_vodka_level / 2) / (GlobalVariables.max_vodka_level * 0.5f) * drunken_factor;
-
+        m = Mathf.Max(0, Mathf.Min(m, 1));
         mat.SetFloat("_Magnitude", m);
         Graphics.Blit(source, destination, mat);
     }

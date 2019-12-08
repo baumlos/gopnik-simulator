@@ -152,6 +152,7 @@ public class LadaRace : MonoBehaviour
 
     void win() {
         Instantiate(winScreen);
+        GlobalVariables.addVodka(health * 100);
         stopGame();
         Debug.Log("You win!");
     }
