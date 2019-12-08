@@ -11,6 +11,10 @@ public class EventTrigger : MonoBehaviour
     [SerializeField]
     private string scene;
 
+    GameUI GUI;
+    private void Start() {
+        GUI = FindObjectOfType<GameUI>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +36,7 @@ public class EventTrigger : MonoBehaviour
         if(other.tag.Equals("Player") && available)
         {
             active = true;
-            
+            GUI.activatePressE();
         }
     }
 
@@ -41,7 +45,8 @@ public class EventTrigger : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             active = false;
-            
+            GUI.deactivatePressE();
+
         }
 
     }

@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 7340c979aec4e9c4985eb2321cc84197, type: 2}
-  freeze_factor: 0.3
+  freeze_factor: 0.4
 --- !u!1 &726861966
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +382,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2072049055, guid: cfd211dc8b7153146ae8fdad33d92342, type: 3}
+      propertyPath: vodkaLevel
+      value: 792
+      objectReference: {fileID: 0}
     - target: {fileID: 5300299812088468629, guid: cfd211dc8b7153146ae8fdad33d92342,
         type: 3}
       propertyPath: m_Name
