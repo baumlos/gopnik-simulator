@@ -8,6 +8,7 @@ public class SpawnFood : MonoBehaviour
     public GameObject[] food;
     public float minTimeTilFoodSpawn, maxTimeTilFoodSpawn;
     public static int missedFood = 0;
+    public Transform spawnPoint;
     //public static int live = 5;
 
 
@@ -35,7 +36,7 @@ public class SpawnFood : MonoBehaviour
         int endPointsIDX = Random.Range(0, endPoints.Length);
         float rotation = Random.Range(-8, -4);
 
-        GameObject spawnedFood = Instantiate(food[foodIDX], transform);
+        GameObject spawnedFood = Instantiate(food[foodIDX], spawnPoint);
 
         Rigidbody foodRigid = spawnedFood.GetComponent<Rigidbody>();
         if (foodRigid)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8485442551793408408}
   - component: {fileID: -4160756585119312788}
   - component: {fileID: 780077211414182472}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Pelmen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
