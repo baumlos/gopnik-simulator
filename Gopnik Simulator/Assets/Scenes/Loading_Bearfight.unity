@@ -254,18 +254,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4f58ae197edf6a4449fc87812a7cc8e2, type: 3}
-    m_FontSize: 32
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ???
+  m_Text: "DEFEND YOURSELF BY CLICKING ON THE REGION THE BEAR IS GOING TO ATTACK.\r\nSTRIKE
+    BACK BY ABUSING THE HOLES IN THE BEARS DEFENSE"
 --- !u!222 &767803178
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -589,6 +590,7 @@ GameObject:
   - component: {fileID: 1865017249}
   - component: {fileID: 1865017248}
   - component: {fileID: 1865017247}
+  - component: {fileID: 1865017250}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -661,6 +663,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865017250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865017246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2c1773c4d72174c96cad978e9f58d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: Bearfight
 --- !u!1 &1894333734
 GameObject:
   m_ObjectHideFlags: 0

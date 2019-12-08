@@ -11,6 +11,7 @@ public class AngryDopnikPlayer : MonoBehaviour
     public int live;
     public Image[] vodkaBottles;
     public Transform hook;
+    public AudioSource scream;
     private bool winned = false;
 
     Vector3 startPos; 
@@ -94,6 +95,7 @@ public class AngryDopnikPlayer : MonoBehaviour
 
     private void Reset()
     {
+        scream.Play(0);
         transform.position = startPos;
         playerRigid.useGravity = false;
         playerRigid.velocity = Vector3.zero;
@@ -131,6 +133,7 @@ public class AngryDopnikPlayer : MonoBehaviour
             GlobalVariables.addVodka(live * 100);
             //freezed = true; //do something with this
             Time.timeScale = 0;
+            this.GetComponent<AudioSource>().Play(0);
             Instantiate(winningScreen);
             winned = true;
             //StartCoroutine(ChangeToOverworld());
