@@ -3081,7 +3081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f636eca0baaf474a81acc27e074491b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: LadaRace
+  scene: Loading_LadaRace
 --- !u!65 &2049864287
 BoxCollider:
   m_ObjectHideFlags: 0
