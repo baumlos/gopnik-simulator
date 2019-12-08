@@ -21,6 +21,7 @@ public class FightScript : MonoBehaviour
     public AudioSource[] sounds;
     private int bearTarget = 0;
     private int playerTarget = 0;
+    public GameObject winScreen, loseScreen;
     // Start is called before the first frame update
     void Start(){
         playerHP=startingLives;
@@ -108,6 +109,8 @@ public class FightScript : MonoBehaviour
     }
     void gameOver(int winner){
         sounds[4+winner].Play(0);
+        if(winner==0) Instantiate(winScreen);
+        else Instantiate(loseScreen);
         fightActive = false;
         if(debug) Debug.Log("Player "+winner+" wins");
     }

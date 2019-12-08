@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AngryDopnik.unity
     guid: 927ac39d42a9ce24c9e254c819260f66
+  - enabled: 1
+    path: Assets/Scenes/OverworldFinal.unity
+    guid: 1c80a058dc0a8ca43a6efa1bd1b249db
+  - enabled: 1
+    path: Assets/Scenes/Bearfight.unity
+    guid: 02414bf64d3eb0344baaca3157be97b4
   m_configObjects: {}

@@ -7,7 +7,7 @@ public class LadaRace : MonoBehaviour
     // public GameObject player;
 
     public float progress = 0; //how far the player came on the race track
-    float length = 250;
+    public float length = 350;
     int lane = 1;       //lane the player is on (0-3)
     public float speed = 5f;
     public float speed_up = 0.05f;
@@ -24,6 +24,7 @@ public class LadaRace : MonoBehaviour
 
     public GameObject winScreen;
     public GameObject loseScreen;
+    public AudioSource audio;
 
     private float obstacle_spawn_cooldown = 0f;  // counter for cooldown
     public float obstacle_spawn_cooldown_duration = 2f;  // minimum time between two obstacles
@@ -134,6 +135,7 @@ public class LadaRace : MonoBehaviour
 
     void OnTriggerEnter(Collider collision) {
         health -= 1;
+        gameObject.GetComponent<AudioSource>().Play(0);
         obstacles.Remove(collision.gameObject);
         Destroy(collision.gameObject);
     }
@@ -155,6 +157,7 @@ public class LadaRace : MonoBehaviour
     }
 
     void lose() {
+        audio.volume = 0.1f;
         Instantiate(explosion, this.gameObject.transform);
         Instantiate(loseScreen);
         stopGame();
