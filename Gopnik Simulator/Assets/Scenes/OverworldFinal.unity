@@ -1332,7 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f636eca0baaf474a81acc27e074491b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: AngryDopnik
+  scene: Loading_AngryGopnik
 --- !u!1 &583294459
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f636eca0baaf474a81acc27e074491b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: WesternSpy
+  scene: Loading_WesternSpy
 --- !u!1001 &621996621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2056,7 +2056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f636eca0baaf474a81acc27e074491b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Neighbours
+  scene: Loading_Neighbours
 --- !u!1001 &764403604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3998,7 +3998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f636eca0baaf474a81acc27e074491b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Babushka
+  scene: Loading_Babushka
 --- !u!1 &1801930681
 GameObject:
   m_ObjectHideFlags: 0
@@ -4310,7 +4310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f636eca0baaf474a81acc27e074491b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Bearfight
+  scene: Loading_Bearfight
 --- !u!1 &1967216580
 GameObject:
   m_ObjectHideFlags: 0
@@ -4498,7 +4498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f636eca0baaf474a81acc27e074491b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: LadaRace
+  scene: Loading_LadaRace
 --- !u!65 &2049864287
 BoxCollider:
   m_ObjectHideFlags: 0
