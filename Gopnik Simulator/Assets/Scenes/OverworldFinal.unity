@@ -1691,6 +1691,7 @@ GameObject:
   - component: {fileID: 692371405}
   - component: {fileID: 692371408}
   - component: {fileID: 692371409}
+  - component: {fileID: 692371410}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1873,6 +1874,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &692371410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692371404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde919a92001c9e49b6606ae434e4f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 57e39ff449e822c4aad535139f212f2e, type: 2}
+  drunken_factor: 0.01
 --- !u!1 &695538057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,7 +2071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f636eca0baaf474a81acc27e074491b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Loading_Neighbours
+  scene: Loading_Neighbors
 --- !u!1001 &764403604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2067,6 +2082,10 @@ PrefabInstance:
     - target: {fileID: 2072049055, guid: cfd211dc8b7153146ae8fdad33d92342, type: 3}
       propertyPath: vodkaLevel
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072049055, guid: cfd211dc8b7153146ae8fdad33d92342, type: 3}
+      propertyPath: soberup_speed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5300299812088468629, guid: cfd211dc8b7153146ae8fdad33d92342,
         type: 3}
@@ -4127,7 +4146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 730638313, guid: 006fa09ee03f26b4d9b31b94f61915e3, type: 3}
       propertyPath: boundaryTop
-      value: 9.35
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 730638313, guid: 006fa09ee03f26b4d9b31b94f61915e3, type: 3}
       propertyPath: boundaryLeft
