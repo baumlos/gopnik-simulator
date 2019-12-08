@@ -17,9 +17,13 @@ public class LadaRace : MonoBehaviour
 
     public GameObject[] background;  // background
 
+    public GameObject explosion;
+
     public GameObject[] obs_prefabs;  // obstacle prefabs
     List<GameObject> obstacles; //
 
+    public GameObject winScreen;
+    public GameObject loseScreen;
 
     private float obstacle_spawn_cooldown = 0f;  // counter for cooldown
     public float obstacle_spawn_cooldown_duration = 2f;  // minimum time between two obstacles
@@ -32,6 +36,8 @@ public class LadaRace : MonoBehaviour
     public Texture health_icon;
     public int health = 3;
 
+
+    bool over = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +48,15 @@ public class LadaRace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (over) { return; }
         if(health <= 0) {
+            over = true;
             lose();
             return;
         }
 
         if (progress >= length) {
+            over = true;
             win();
             return;
         }
@@ -140,11 +149,14 @@ public class LadaRace : MonoBehaviour
     }
 
     void win() {
+        Instantiate(winScreen);
         stopGame();
         Debug.Log("You win!");
     }
 
     void lose() {
+        Instantiate(explosion, this.gameObject.transform);
+        Instantiate(loseScreen);
         stopGame();
         Debug.Log("You lost!");
     }
