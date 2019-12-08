@@ -6437,6 +6437,7 @@ Transform:
   - {fileID: 1139842065}
   - {fileID: 1397055290}
   - {fileID: 167343127}
+  - {fileID: 2001845455}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6458,12 +6459,42 @@ MonoBehaviour:
   - {fileID: 1062472785496746096, guid: 14f77e07d8a10934292a37fad50008f6, type: 3}
   minTimeTilFoodSpawn: 0.5
   maxTimeTilFoodSpawn: 1.5
-  spawnPoint: {fileID: 735897329}
+  spawnPoint: {fileID: 2001845455}
   endPoints:
   - {fileID: 1122841611}
   - {fileID: 1139842065}
   - {fileID: 1397055290}
   height: 8
+--- !u!1 &2001845454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2001845455}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2001845455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001845454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: -0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1833936508}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2139237837
 GameObject:
   m_ObjectHideFlags: 0
