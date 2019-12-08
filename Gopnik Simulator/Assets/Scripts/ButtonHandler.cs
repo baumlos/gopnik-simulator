@@ -6,21 +6,25 @@ using UnityEngine.SceneManagement;
 public class ButtonHandler : MonoBehaviour
 {
     public void startGame() {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Overworld");
     }
 
 
     public void exitGame() {
+        Time.timeScale = 1;
         Debug.Log("Quit");
         Application.Quit();
     }
 
     public void toTitleScreen() {
+        Time.timeScale = 1;
         Debug.Log("TitleScreen");
         SceneManager.LoadScene("TitleScreen");
     }
 
     public void toCredits() {
+        Time.timeScale = 1;
         Debug.Log("Credits");
         SceneManager.LoadScene("Credits");
     }
