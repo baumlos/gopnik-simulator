@@ -25,7 +25,7 @@ public class WesternSpy_Movement : MonoBehaviour {
 
     static bool right = false;
     static bool left = false;
-    static bool started = false;
+    static bool started = true;
     // Start is called before the first frame update
     void Start()
     {
