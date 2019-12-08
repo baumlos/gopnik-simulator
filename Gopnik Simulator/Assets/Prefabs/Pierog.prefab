@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7719597385796268501}
   - component: {fileID: 6386623280355376161}
   - component: {fileID: 5194131977441527733}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Pierog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
