@@ -18,14 +18,14 @@ public class WesternSpy_Movement : MonoBehaviour {
 
     private int counter;
     private float distance;
-    static private int pos = -1;
+    private int pos = -1;
 
-    static private bool finished = false;
-    static private int timer = 0;
+    private bool finished = false;
+    private int timer = 0;
 
-    static bool right = false;
-    static bool left = false;
-    static bool started = true;
+    bool right = false;
+    bool left = false;
+    bool started = true;
     // Start is called before the first frame update
     void Start()
     {
