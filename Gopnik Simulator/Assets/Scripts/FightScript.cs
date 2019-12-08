@@ -161,8 +161,7 @@ public class FightScript : MonoBehaviour
     }
     void firstStart(){
         fightActive = true;
-        bearChoose();
-        switchDef();
+        intermission = true;
         playerDefender = true;
         setPlayerTarget(1);
         attacks[0].GetComponent<AttackScript>().setS(new Vector3(-7,-4,0));
