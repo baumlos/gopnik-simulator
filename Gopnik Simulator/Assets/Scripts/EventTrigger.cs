@@ -7,9 +7,6 @@ public class EventTrigger : MonoBehaviour
 {
     private bool active = false;
     private bool available = true;
-    [SerializeField]
-    private GameObject text = null;
-    private GameObject pic = null;
 
     [SerializeField]
     private string scene;
@@ -17,13 +14,7 @@ public class EventTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(text == null)
-        {
-
-            text = GameObject.Find("PressEToEnterTheEvent");
-            pic = GameObject.Find("PressEToEnterTheEvent");
-        }
-        if (active && Input.GetKey(KeyCode.E))
+      if (active && Input.GetKey(KeyCode.E))
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
@@ -41,8 +32,7 @@ public class EventTrigger : MonoBehaviour
         if(other.tag.Equals("Player") && available)
         {
             active = true;
-            text.SetActive(true);
-            pic.SetActive(true);
+            
         }
     }
 
@@ -51,8 +41,7 @@ public class EventTrigger : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             active = false;
-            text.SetActive(false);
-            pic.SetActive(false);
+            
         }
 
     }
