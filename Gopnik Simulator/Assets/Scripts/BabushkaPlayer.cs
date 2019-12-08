@@ -13,6 +13,7 @@ public class BabushkaPlayer : MonoBehaviour
     public int foodCaptured = 0;
     public LayerMask foodLayer;
     public ParticleSystem catchedSomethingEffect;
+    public SpawnFood babushka;
 
     //public Transform[] foodCorners;
     public Image[] vodkaBottles;
@@ -25,6 +26,8 @@ public class BabushkaPlayer : MonoBehaviour
     [Header("Text to display")]
     public GameObject winningScreen;
     public GameObject losingScreen;
+
+
 
     
 
@@ -59,8 +62,10 @@ public class BabushkaPlayer : MonoBehaviour
             //other.gameObject.transform.position = foodCorners[foodIndex].position;
             //foodIndex++;
             catchedSomethingEffect.Play();
+            babushka.minTimeTilFoodSpawn -= 0.05f;
+            babushka.maxTimeTilFoodSpawn -= 0.1f;
 
-            if(foodCaptured > foodCapturedToWin)
+            if (foodCaptured > foodCapturedToWin)
             {
                 GlobalVariables.addVodka(live * 100);
                 Time.timeScale = 0;

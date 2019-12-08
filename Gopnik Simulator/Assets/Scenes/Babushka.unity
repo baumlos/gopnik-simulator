@@ -259,6 +259,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   catchedSomethingEffect: {fileID: 938377910}
+  babushka: {fileID: 0}
   vodkaBottles:
   - {fileID: 933608892}
   - {fileID: 1194988462}
@@ -5787,7 +5788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122841610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.98, y: -2.65, z: 0}
+  m_LocalPosition: {x: 4.22, y: -2.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1833936508}
@@ -5817,7 +5818,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139842064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.7, y: -2.65, z: 0}
+  m_LocalPosition: {x: 8.09, y: -2.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1833936508}
@@ -6100,12 +6101,12 @@ PrefabInstance:
     - target: {fileID: 6181485156284434177, guid: 006fa09ee03f26b4d9b31b94f61915e3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6181485156284434177, guid: 006fa09ee03f26b4d9b31b94f61915e3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6181485156284434179, guid: 006fa09ee03f26b4d9b31b94f61915e3,
         type: 3}
@@ -6222,7 +6223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397055289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.18, y: -2.58, z: 0}
+  m_LocalPosition: {x: 12.3, y: -2.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1833936508}
@@ -6319,12 +6320,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8c507235c7d0045945b9586e920b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   foodCaptured: 0
   foodLayer:
     serializedVersion: 2
     m_Bits: 4096
   catchedSomethingEffect: {fileID: 938377910}
+  babushka: {fileID: 1833936509}
   vodkaBottles:
   - {fileID: 933608892}
   - {fileID: 1194988462}
@@ -6457,6 +6459,7 @@ MonoBehaviour:
   - {fileID: 2634355146136968025, guid: 841dd5cc7b2e105418d84f2becd637e5, type: 3}
   - {fileID: 4209952968247456532, guid: dba30927cd10af9488d9d54c880d121a, type: 3}
   - {fileID: 1062472785496746096, guid: 14f77e07d8a10934292a37fad50008f6, type: 3}
+  - {fileID: 5340801730697380816, guid: da57828544f32f54895154737e4c1c2d, type: 3}
   minTimeTilFoodSpawn: 0.5
   maxTimeTilFoodSpawn: 1.5
   spawnPoint: {fileID: 2001845455}
