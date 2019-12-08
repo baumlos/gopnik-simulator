@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Overworld.unity
     guid: ea56870a4c3764e4ea7defbe66ba22ba
   - enabled: 1
+    path: Assets/Scenes/FrozenToDeath.unity
+    guid: 796163f5a50a9b847ac006315062095f
+  - enabled: 1
     path: Assets/Scenes/Babushka.unity
     guid: 1d14438f7a0aa6e439b11acbc15b7b39
   - enabled: 1
