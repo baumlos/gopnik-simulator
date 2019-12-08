@@ -6,8 +6,8 @@ public class OverWorld_Walking : MonoBehaviour
 
 {
 
-    [SerializeField]
-    private GameObject[] AnimationParts;
+    //[SerializeField]
+    //private GameObject[] AnimationParts;
 
     [SerializeField]
     private GameObject camera;
@@ -34,9 +34,11 @@ public class OverWorld_Walking : MonoBehaviour
     [SerializeField]
     private float boundaryCameraRight;
 
+    [SerializeField]
+    private Animator torsoAnimator;
     //public Quaternion r;
 
-    static private float camerax = 0, cameraz = -3.58f;
+    static private float camerax = 0, cameray = 2.59f, cameraz = -3.7f;
 
     private bool left = false;
     static private float posx = 0, posz = 1.2f;
@@ -45,7 +47,7 @@ public class OverWorld_Walking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera.transform.SetPositionAndRotation(new Vector3(camerax, 0, cameraz), new Quaternion(0.5735764f, 0, 0, 0.8191521f));
+        camera.transform.SetPositionAndRotation(new Vector3(camerax, cameray, cameraz), camera.transform.rotation);
         //r = camera.transform.rotation;
 
         /*GameObject[] tmp = new GameObject[AnimationParts.Length+1];
@@ -57,13 +59,13 @@ public class OverWorld_Walking : MonoBehaviour
         tmp[AnimationParts.Length] = this.gameObject;
         this.gameObject.GetComponent<Renderer>().enabled = false;
         AnimationParts = tmp;*/
-        for(int i=1; i<AnimationParts.Length; i++)
-        {
-            AnimationParts[i].GetComponent<Renderer>().enabled = false;
-        }
-        AnimationParts[0].GetComponent<Renderer>().enabled = true;
-        GameObject.Find("PressEToEnterTheEvent").SetActive( false);
-        GameObject.Find("PressEToEnterTheEventLetter").SetActive(false);
+        //for(int i=1; i<AnimationParts.Length; i++)
+        //{
+        //    AnimationParts[i].GetComponent<Renderer>().enabled = false;
+        //}
+        //AnimationParts[0].GetComponent<Renderer>().enabled = true;
+        //GameObject.Find("PressEToEnterTheEvent").SetActive( false);
+        //GameObject.Find("PressEToEnterTheEventLetter").SetActive(false);
     }
 
     // Update is called once per frame
@@ -93,32 +95,34 @@ public class OverWorld_Walking : MonoBehaviour
         {
             posz -= speedz;
         }
-        this.gameObject.transform.SetPositionAndRotation(new Vector3(posx, -4.682443f, posz), this.gameObject.transform.rotation);
+        this.gameObject.transform.SetPositionAndRotation(new Vector3(posx, 1.0f, posz), this.gameObject.transform.rotation);
 
         //Animation
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && left == false)
-            {
-                this.gameObject.transform.localScale = new Vector3(-1, 1, 1);
-                left = true;
-            }
-            if((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && left == true)
-            {
-                this.gameObject.transform.localScale = new Vector3(1, 1, 1);
-                left = false;
-            }
-            timer++;
-            if (timer % maxTimer == 0)
-            {
-                AnimationParts[0].GetComponent<Renderer>().enabled = false;
-                AnimationParts[pointer++ % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = false;
-                AnimationParts[pointer % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = true;
-            }
+            torsoAnimator.SetBool("walking", true);
+            //if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && left == false)
+            //{
+            //    this.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            //    left = true;
+            //}
+            //if((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && left == true)
+            //{
+            //    this.gameObject.transform.localScale = new Vector3(1, 1, 1);
+            //    left = false;
+            //}
+            //timer++;
+            //if (timer % maxTimer == 0)
+            //{
+            //    AnimationParts[0].GetComponent<Renderer>().enabled = false;
+            //    AnimationParts[pointer++ % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = false;
+            //    AnimationParts[pointer % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = true;
+            //}
         } else
         {
-            AnimationParts[pointer % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = false;
-            AnimationParts[0].GetComponent<Renderer>().enabled = true;
+            torsoAnimator.SetBool("walking", false);
+            //AnimationParts[pointer % (AnimationParts.Length-1)+1].GetComponent<Renderer>().enabled = false;
+            //AnimationParts[0].GetComponent<Renderer>().enabled = true;
         }
     }
 
