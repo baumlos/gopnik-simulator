@@ -129,7 +129,8 @@ public class AngryDopnikPlayer : MonoBehaviour
         if(other.tag == "Hole")
         {
             GlobalVariables.addVodka(live * 100);
-            freezed = true; //do something with this
+            //freezed = true; //do something with this
+            Time.timeScale = 0;
             Instantiate(winningScreen);
             winned = true;
             //StartCoroutine(ChangeToOverworld());

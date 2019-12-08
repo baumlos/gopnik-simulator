@@ -12,18 +12,14 @@ public class DestroyOnBecomeInvisible : MonoBehaviour
         player = FindObjectOfType<BabushkaPlayer>();
     }
 
-
-    
-
-    private void OnBecameInvisible()
+    private void Update()
     {
-        if (!captured)
+        if(transform.position.y < -5)
         {
             player.DestroyVodka();
             Destroy(this.gameObject);
         }
-       
-
-
     }
+
+
 }
