@@ -16,6 +16,7 @@ public class LoadingScript : MonoBehaviour
     void Update()
     {
         if(Input.anyKeyDown){
+            Time.timeScale=1;
             SceneManager.LoadScene(nextScene);
         }
     }
