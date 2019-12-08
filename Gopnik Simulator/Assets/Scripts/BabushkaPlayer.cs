@@ -62,6 +62,7 @@ public class BabushkaPlayer : MonoBehaviour
 
             if(foodCaptured > foodCapturedToWin)
             {
+                GlobalVariables.addVodka(live * 100);
                 Time.timeScale = 0;
                 Instantiate(winningScreen);
                 //Debug.Log("You won");

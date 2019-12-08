@@ -11,6 +11,7 @@ public class AngryDopnikPlayer : MonoBehaviour
     public int live;
     public Image[] vodkaBottles;
     public Transform hook;
+    private bool winned = false;
 
     Vector3 startPos; 
     Vector3 hookStartPos;
@@ -127,12 +128,14 @@ public class AngryDopnikPlayer : MonoBehaviour
     {
         if(other.tag == "Hole")
         {
+            GlobalVariables.addVodka(live * 100);
             freezed = true; //do something with this
             this.GetComponent<AudioSource>().Play(0);
             Instantiate(winningScreen);
+            winned = true;
             //StartCoroutine(ChangeToOverworld());
             Debug.Log("Should win here");
-        } else if(other.tag == "Ice")
+        } else if(other.tag == "Ice" && !winned)
         {
             Reset();
         }

@@ -25,7 +25,7 @@ public class WesternSpy_Movement : MonoBehaviour {
 
     static bool right = false;
     static bool left = false;
-    static bool started = false;
+    static bool started = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,17 +38,17 @@ public class WesternSpy_Movement : MonoBehaviour {
             {
                 if (pos == spawner.GetComponent<WesternSpy_Spawner>().getSpy())
                 {
-                    win.GetComponent<Renderer>().enabled = true;
+                    //win.GetComponent<Renderer>().enabled = true;
                 }
                 else
                 {
-                    loose.GetComponent<Renderer>().enabled = true;
+                    //loose.GetComponent<Renderer>().enabled = true;
                 }
             }
             instructions.GetComponent<Renderer>().enabled = !started;
             instructionsText.GetComponent<GameUI>().deactivatePressE();
-            win.GetComponent<GameUI>().deactivatePressE();
-            loose.GetComponent<GameUI>().deactivatePressE();
+            //win.GetComponent<GameUI>().deactivatePressE();
+            //loose.GetComponent<GameUI>().deactivatePressE();
 
         }
         else
@@ -109,6 +109,7 @@ public class WesternSpy_Movement : MonoBehaviour {
                 {
                     if (pos == spawner.GetComponent<WesternSpy_Spawner>().getSpy())
                     {
+                        GlobalVariables.addVodka(200);
                         win = Instantiate(win);
                     } else
                     {
