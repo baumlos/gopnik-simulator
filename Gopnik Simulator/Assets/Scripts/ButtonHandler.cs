@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonHandler : MonoBehaviour
 {
     public void startGame() {
+        Debug.Log("To Overworld");
         Time.timeScale = 1;
         SceneManager.LoadScene("Overworld");
     }

@@ -13,6 +13,8 @@ public class WesternSpy_Movement : MonoBehaviour {
     private GameObject win;
     [SerializeField]
     private GameObject loose;
+    [SerializeField]
+    private GameObject instructionsText;
 
     private int counter;
     private float distance;
@@ -44,6 +46,10 @@ public class WesternSpy_Movement : MonoBehaviour {
                 }
             }
             instructions.GetComponent<Renderer>().enabled = !started;
+            instructionsText.GetComponent<GameUI>().deactivatePressE();
+            win.GetComponent<GameUI>().deactivatePressE();
+            loose.GetComponent<GameUI>().deactivatePressE();
+
         }
         else
         {
@@ -63,6 +69,7 @@ public class WesternSpy_Movement : MonoBehaviour {
         {
             if (started)
             {
+                instructionsText.GetComponent<GameUI>().deactivatePressE();
                 instructions.GetComponent<Renderer>().enabled = false;
                 float target = pos * distance;
                 gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(target, 0, -10), 0.1f);
@@ -102,10 +109,10 @@ public class WesternSpy_Movement : MonoBehaviour {
                 {
                     if (pos == spawner.GetComponent<WesternSpy_Spawner>().getSpy())
                     {
-                        win.GetComponent<Renderer>().enabled = true;
+                        win = Instantiate(win);
                     } else
                     {
-                        loose.GetComponent<Renderer>().enabled = true;
+                        loose = Instantiate(loose);
                     }
                     finished = true;
                 }
@@ -117,15 +124,16 @@ public class WesternSpy_Movement : MonoBehaviour {
                     started = true;
                     left = true;
                     right = true;
+                    instructionsText.GetComponent<GameUI>().deactivatePressE();
                     instructions.GetComponent<Renderer>().enabled = false;
                 }
             }
         } else
         {
             timer++;
-            if(!Input.GetKey(KeyCode.Escape) && Input.anyKeyDown && timer > 10)
+            /*if(!Input.GetKey(KeyCode.Escape) && Input.anyKeyDown && timer > 10)
             {
-                if (win.GetComponent<Renderer>().enabled == true)
+                if (win.GetComponent<GameUI>(). == true)
                 {
                     SceneManager.LoadScene(0);
                 }
@@ -135,7 +143,7 @@ public class WesternSpy_Movement : MonoBehaviour {
                     spawner.GetComponent<WesternSpy_Spawner>().resetSpy();
                     SceneManager.LoadScene("WesternSpy");
                 }
-            }
+            }*/
         }
     }
 }
