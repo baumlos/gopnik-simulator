@@ -140,11 +140,11 @@ public class OverWorld_Walking : MonoBehaviour
         }
         this.gameObject.transform.SetPositionAndRotation(new Vector3(posx, transform.position.y, posz), this.gameObject.transform.rotation);
 
-        if (gameObject.transform.position.x > boundaryRight)
-            gameObject.transform.SetPositionAndRotation(new Vector3(boundaryRight, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
-        if (gameObject.transform.position.x < boundaryLeft) gameObject.transform.SetPositionAndRotation(new Vector3(boundaryLeft, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
-        if (gameObject.transform.position.z > boundaryTop) gameObject.transform.SetPositionAndRotation(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, boundaryTop), gameObject.transform.rotation);
-        if (gameObject.transform.position.z < boundaryBot) gameObject.transform.SetPositionAndRotation(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, boundaryBot), gameObject.transform.rotation);
+        //if (gameObject.transform.position.x > boundaryRight)
+        //    gameObject.transform.SetPositionAndRotation(new Vector3(boundaryRight, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
+        //if (gameObject.transform.position.x < boundaryLeft) gameObject.transform.SetPositionAndRotation(new Vector3(boundaryLeft, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
+        //if (gameObject.transform.position.z > boundaryTop) gameObject.transform.SetPositionAndRotation(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, boundaryTop), gameObject.transform.rotation);
+        //if (gameObject.transform.position.z < boundaryBot) gameObject.transform.SetPositionAndRotation(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, boundaryBot), gameObject.transform.rotation);
 
         //Animation
     }
