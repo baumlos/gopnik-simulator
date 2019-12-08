@@ -7,19 +7,19 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: 08f9a5a8cb9131d4b81bfdc7a06b8df7
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: f9ebbdc57e265f047b0fb96f84b13af8
   - enabled: 1
     path: Assets/Scenes/WesternSpy.unity
     guid: 6c33e84445b06dd4ea06900b5ffec385
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: fe31036f24afdac4781b4e88b2a161fd
   - enabled: 1
     path: Assets/Scenes/LadaRace.unity
     guid: ee48810483d2f9d4b890651d14125b24
-  - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
-    guid: f9ebbdc57e265f047b0fb96f84b13af8
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: b6b1625cacd901240bc810b37c530645
@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Babushka.unity
     guid: 1d14438f7a0aa6e439b11acbc15b7b39
+  - enabled: 1
+    path: Assets/Scenes/Neighbours.unity
+    guid: 19eae109a2a17f541af26c132a62be90
   - enabled: 1
     path: Assets/Scenes/AngryDopnik.unity
     guid: 927ac39d42a9ce24c9e254c819260f66
