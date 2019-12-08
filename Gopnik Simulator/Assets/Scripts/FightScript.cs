@@ -18,12 +18,14 @@ public class FightScript : MonoBehaviour
     public GameObject[] bear = new GameObject[3];
     public FightSliderScript[] slider;
     public GameObject[] attacks;
+    public AudioSource[] sounds;
     private int bearTarget = 0;
     private int playerTarget = 0;
     // Start is called before the first frame update
     void Start(){
         playerHP=startingLives;
         bearHP=startingLives;
+        firstStart();
     }
 
     // Update is called once per frame
@@ -65,8 +67,9 @@ public class FightScript : MonoBehaviour
     }
     void bearAttack(){
         if(debug) Debug.Log("Bear attacks pos "+ bearTarget);
-        attacks[1].GetComponent<AttackScript>().setT(new Vector3(-7,(-4*bearTarget),0));
+        attacks[1].GetComponent<AttackScript>().setT(new Vector3(-9,(-4*bearTarget)+2,0));
         attacks[1].SetActive(true);
+        sounds[Random.Range(0,2)].Play(0);
         if(bearTarget!=playerTarget){
             playerHit();
         }
@@ -76,13 +79,14 @@ public class FightScript : MonoBehaviour
     }
     void playerAttack(){
         if(debug) Debug.Log("Player attacks pos "+playerTarget);
-        attacks[0].GetComponent<AttackScript>().setT(new Vector3(7,(-4*playerTarget),0));
+        attacks[0].GetComponent<AttackScript>().setT(new Vector3(9,(-4*playerTarget)+2,0));
         attacks[0].SetActive(true);
         if(playerTarget!=bearTarget){
             bearHit();
         }
         else if(debug) Debug.Log("player misses");
         playerDefender = true;
+        def(0,playerTarget);
         intermission = true;
     }
     void playerHit(){
@@ -95,6 +99,7 @@ public class FightScript : MonoBehaviour
     }
     void bearHit(){
         if(debug) Debug.Log("Bear hit");
+        sounds[Random.Range(2,4)].Play(0);
         bearHP--;
         slider[3].setCurrentValue(bearHP);
         if(bearHP==0){
@@ -102,6 +107,7 @@ public class FightScript : MonoBehaviour
         }
     }
     void gameOver(int winner){
+        sounds[4+winner].Play(0);
         fightActive = false;
         if(debug) Debug.Log("Player "+winner+" wins");
     }
@@ -130,8 +136,8 @@ public class FightScript : MonoBehaviour
         }
         if(player == 1) {
             rot*=-1;
-            q = Quaternion.Euler(0,0,180+rot);
-            GameObject.FindGameObjectWithTag("Bear Head").transform.rotation = q;
+            q = Quaternion.Euler(0,0,rot);
+            bear[0].transform.rotation = q;
             }
 
         else{
@@ -151,6 +157,7 @@ public class FightScript : MonoBehaviour
         bearChoose();
         switchDef();
         playerDefender = true;
+        setPlayerTarget(1);
         attacks[0].GetComponent<AttackScript>().setS(new Vector3(-7,-4,0));
         attacks[1].GetComponent<AttackScript>().setS(new Vector3(7,-4,0));
     }
@@ -158,51 +165,38 @@ public class FightScript : MonoBehaviour
         int y= 0;
         switch(pos){
             case 0:
-            y = 0;
+            y = 2;
             break;
             case 1:
-            y = -4;
+            y = -2;
             break;
             case 2:
-            y = -8;
+            y = -6;
             break;
             default:
             y = 4;
             break;
         }
         if(player == 0){
-            this.player[3].transform.position = new Vector3(-6,y,0);
+            this.player[1].transform.position = new Vector3(-10,y,0);
             if(debug) Debug.Log("Spieler verteidigt pos "+pos);
         }
         else {
-            bear[3].transform.position = new Vector3(6,y,0);
+            bear[1].transform.position = new Vector3(10,y,0);
             if(debug) Debug.Log("Bär verteidigt pos "+pos);
         }
     }
     void switchDef(){
         if(playerDefender){
-            player[3].SetActive(true);
-            bear[3].SetActive(false);
+            player[1].SetActive(true);
+            bear[1].SetActive(false);
             slider[0].setActive(true);
         }
         else{
-            player[3].SetActive(false);
-            bear[3].SetActive(true);
+            player[1].SetActive(false);
+            bear[1].SetActive(true);
             slider[1].setActive(true);
         }
-    }
-    public Vector3 genTarget(){
-        int x,y;
-        if(playerDefender) {
-            x = -9;
-            y = (-4 * bearTarget) +4;
-        }
-        else {
-            x = 9;
-            y = (-4 * playerTarget) + 4;
-        }
-        return new Vector3(x,y,0);
-
     }
     public void clickedBearHead(){
         if(!playerDefender){
@@ -223,16 +217,19 @@ public class FightScript : MonoBehaviour
     }
     public void clickedPlayerHead(){
         if(playerDefender){
+            playerTarget = 0;
             def(0,0);
         }
     }
     public void clickedPlayerBody(){
         if(playerDefender){
+            playerTarget = 1;
             def(0,1);
         }
     }
     public void clickedPlayerFeet(){
         if(playerDefender){
+            playerTarget = 2;
             def(0,2);
         }
     }
