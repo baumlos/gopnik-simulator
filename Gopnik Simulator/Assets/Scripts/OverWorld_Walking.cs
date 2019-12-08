@@ -8,10 +8,13 @@ public class OverWorld_Walking : MonoBehaviour
 
     //[SerializeField]
     //private GameObject[] AnimationParts;
-
+    [Header("Camera variables")]
     [SerializeField]
     private GameObject camera;
+    Vector3 velocity = Vector3.zero;
+    public float smoothTime = 0.3f;
 
+    [Header("PLayer Variables")]
     private int pointer = 0;
     private int timer = 0;
     [SerializeField]
@@ -76,7 +79,10 @@ public class OverWorld_Walking : MonoBehaviour
             posx -= speedx;
             if(camera.transform.position.x - this.gameObject.transform.position.x >= boundaryCameraLeft)
             {
-                camera.transform.SetPositionAndRotation(camera.transform.position + new Vector3(-speedx, 0, 0), camera.transform.rotation);
+                //camera.transform.SetPositionAndRotation(camera.transform.position + new Vector3(-speedx, 0, 0), camera.transform.rotation);
+
+                camera.transform.position = Vector3.SmoothDamp(camera.transform.position, camera.transform.position + new Vector3(-speedx, 0, 0), ref velocity, smoothTime * Time.deltaTime);
+
             }
         }
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && gameObject.transform.position.x < boundaryRight)
@@ -84,7 +90,9 @@ public class OverWorld_Walking : MonoBehaviour
             posx += speedx;
             if (this.gameObject.transform.position.x - camera.transform.position.x >= boundaryCameraRight)
             {
-                camera.transform.SetPositionAndRotation(camera.transform.position + new Vector3(speedx, 0, 0), camera.transform.rotation);
+                //camera.transform.SetPositionAndRotation(camera.transform.position + new Vector3(speedx, 0, 0), camera.transform.rotation);
+                camera.transform.position = Vector3.SmoothDamp(camera.transform.position, camera.transform.position + new Vector3(speedx, 0, 0), ref velocity, smoothTime * Time.deltaTime);
+
             }
         }
         if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && gameObject.transform.position.z < boundaryTop)
