@@ -77,7 +77,8 @@ public class OverWorld_Walking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction += Random.Range(-1, 1);
+        //GlobalVariables.addVodka(100); 
+        direction += Random.Range(-0.5f, 0.5f);
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             torsoAnimator.SetBool("walking", true);
@@ -137,6 +138,12 @@ public class OverWorld_Walking : MonoBehaviour
             posz -= speedz;
         }
         this.gameObject.transform.SetPositionAndRotation(new Vector3(posx, transform.position.y, posz), this.gameObject.transform.rotation);
+
+        if (gameObject.transform.position.x > boundaryRight)
+            gameObject.transform.SetPositionAndRotation(new Vector3(boundaryRight, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
+        if (gameObject.transform.position.x < boundaryLeft) gameObject.transform.SetPositionAndRotation(new Vector3(boundaryLeft, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
+        if (gameObject.transform.position.z > boundaryTop) gameObject.transform.SetPositionAndRotation(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, boundaryTop), gameObject.transform.rotation);
+        if (gameObject.transform.position.x < boundaryBot) gameObject.transform.SetPositionAndRotation(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, boundaryBot), gameObject.transform.rotation);
 
         //Animation
     }
