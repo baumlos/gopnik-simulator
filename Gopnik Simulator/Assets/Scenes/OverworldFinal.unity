@@ -4537,6 +4537,10 @@ PrefabInstance:
       propertyPath: boundaryCameraRight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 730638313, guid: 006fa09ee03f26b4d9b31b94f61915e3, type: 3}
+      propertyPath: drunkenRange
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6181485155689374878, guid: 006fa09ee03f26b4d9b31b94f61915e3,
         type: 3}
       propertyPath: m_LocalPosition.x

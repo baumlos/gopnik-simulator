@@ -37,6 +37,8 @@ public class OverWorld_Walking : MonoBehaviour
     [SerializeField]
     private float boundaryCameraRight;
 
+    public float drunkenRange;
+
     [SerializeField]
     private Animator torsoAnimator;
     //public Quaternion r;
@@ -77,12 +79,12 @@ public class OverWorld_Walking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction += Random.Range(-1, 1);
+        direction += Random.Range(-drunkenRange, drunkenRange);
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             torsoAnimator.SetBool("walking", true);
-            posz += speedz * Mathf.Sin(direction) * Random.Range(0, GlobalVariables.vodka_level / GlobalVariables.max_vodka_level);
-            posx += speedx * Mathf.Sin(direction) * Random.Range(0, GlobalVariables.vodka_level / GlobalVariables.max_vodka_level);
+            posz += speedz * Mathf.Sin(direction * Time.deltaTime) * Random.Range(0, GlobalVariables.vodka_level / GlobalVariables.max_vodka_level);
+            posx += speedx * Mathf.Sin(direction * Time.deltaTime) * Random.Range(0, GlobalVariables.vodka_level / GlobalVariables.max_vodka_level);
             //if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && left == false)
             //{
             //    this.gameObject.transform.localScale = new Vector3(-1, 1, 1);
