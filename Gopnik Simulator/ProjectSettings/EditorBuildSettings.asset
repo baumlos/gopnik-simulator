@@ -39,6 +39,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Bearfight.unity
     guid: 02414bf64d3eb0344baaca3157be97b4
   - enabled: 1
-    path: Assets/Scenes/Hendrik.unity
-    guid: 95df7df2383750b479ffb00db7d232c0
+    path: Assets/Scenes/Loading_LadaRace.unity
+    guid: c7b96db39ab8e1c4ca72f1b5824a76b7
   m_configObjects: {}

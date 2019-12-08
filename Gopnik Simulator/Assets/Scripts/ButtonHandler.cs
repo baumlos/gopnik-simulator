@@ -29,4 +29,9 @@ public class ButtonHandler : MonoBehaviour
         Debug.Log("Credits");
         SceneManager.LoadScene("Credits");
     }
+
+    public void loadScene(string s) {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(s);
+    }
 }
