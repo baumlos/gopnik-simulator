@@ -109,8 +109,12 @@ public class FightScript : MonoBehaviour
     }
     void gameOver(int winner){
         sounds[4+winner].Play(0);
-        if(winner==0) Instantiate(winScreen);
-        else Instantiate(loseScreen);
+        if (winner == 0) {
+            GlobalVariables.addVodka(playerHP * 100);
+            Instantiate(winScreen);
+        } else {
+            Instantiate(loseScreen);
+        }
         fightActive = false;
         if(debug) Debug.Log("Player "+winner+" wins");
     }

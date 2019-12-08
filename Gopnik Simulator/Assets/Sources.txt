@@ -1,1 +1,2 @@
 kremlin.ttf: https://www.dafont.com/kremlin.font [07.12.2019]
+pricedown.ttf: https://www.dafont.com/de/pricedown.font [08.12.2019]

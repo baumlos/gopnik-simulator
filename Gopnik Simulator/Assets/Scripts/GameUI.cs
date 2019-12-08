@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class GameUI : MonoBehaviour
 
     private void Update() {
         GlobalVariables.vodka_level = GlobalVariables.vodka_level - soberup_speed * Time.deltaTime;// vodkaLevel;
+        if (GlobalVariables.vodka_level <= 0) {
+            GlobalVariables.vodka_level = 500;
+            SceneManager.LoadScene("FrozenToDeath");
+        }
         updateVodkaLevel();
 
     }
