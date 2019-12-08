@@ -33,14 +33,14 @@ public class FootTracks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        DoTheFootprint();
     }
     public void DoTheFootprint()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out groundHit, 5f, layerMask))
         {
             stepDirection = stepDirection.normalized;
-            for(int i = -1; i <= 1; i++)
+            for(int i = -2; i <= 2; i++)
             {
                 float tempFloatX = groundHit.textureCoord.x + (i * stepLength) * stepDirection.x;
                 float tempFloatY = groundHit.textureCoord.y + (i * stepLength) * stepDirection.y;

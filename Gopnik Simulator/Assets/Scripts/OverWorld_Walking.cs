@@ -103,7 +103,7 @@ public class OverWorld_Walking : MonoBehaviour
         {
             posz -= speedz;
         }
-        this.gameObject.transform.SetPositionAndRotation(new Vector3(posx, 1.0f, posz), this.gameObject.transform.rotation);
+        this.gameObject.transform.SetPositionAndRotation(new Vector3(posx, transform.position.y, posz), this.gameObject.transform.rotation);
 
         //Animation
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
