@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
     public GameObject ui_element_press_e;
-    [Range(0.0f, 1.0f)]
+    [Range(0.0f, 1000.0f)]
     public float vodkaLevel;
-    public int vodkaMeterSizeMax = 200;
-
+    
     public Image vodkameter;
 
     private void Update() {
+        //GlobalVariables.vodka_level = vodkaLevel;
         updateVodkaLevel();
+
     }
 
     public void activatePressE() {
@@ -28,6 +29,6 @@ public class GameUI : MonoBehaviour
     }
 
     public void updateVodkaLevel() {
-        vodkameter.fillAmount = vodkaLevel;
+        vodkameter.fillAmount = GlobalVariables.vodka_level/GlobalVariables.max_vodka_level;
     }
 }
