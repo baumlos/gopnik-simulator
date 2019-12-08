@@ -128,6 +128,7 @@ public class AngryDopnikPlayer : MonoBehaviour
         if(other.tag == "Hole")
         {
             freezed = true; //do something with this
+            this.GetComponent<AudioSource>().Play(0);
             Instantiate(winningScreen);
             //StartCoroutine(ChangeToOverworld());
             Debug.Log("Should win here");
