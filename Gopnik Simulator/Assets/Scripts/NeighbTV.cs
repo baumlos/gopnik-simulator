@@ -14,6 +14,7 @@ public class NeighbTV : MonoBehaviour
         sound.Play();
 
         Speechbubbles[] bubbles = FindObjectsOfType<Speechbubbles>();
+        Debug.Log("TV: Bubbles Found: " + bubbles.Length);
         for (int i = 0; i < bubbles.Length; i++)
         {
             bubbles[i].active = false;
