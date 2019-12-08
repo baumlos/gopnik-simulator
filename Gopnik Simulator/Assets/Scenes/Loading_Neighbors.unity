@@ -232,7 +232,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 400, y: 200}
+  m_SizeDelta: {x: 400, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &767803177
 MonoBehaviour:
@@ -265,7 +265,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ???
+  m_Text: 'mAKE LOTS OF NOISE BY CLICKING ON OBJECTS AS FAST AS POSSIBLE TO IRRITATE
+    YOUR NEIGHBORS. BEWARE: EVERYONE LOVES PUTIN!'
 --- !u!222 &767803178
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -8,24 +8,20 @@ public class WesternSpy_Movement : MonoBehaviour {
     [SerializeField]
     private GameObject spawner;
     [SerializeField]
-    private GameObject instructions;
-    [SerializeField]
     private GameObject win;
     [SerializeField]
     private GameObject loose;
-    [SerializeField]
-    private GameObject instructionsText;
 
     private int counter;
     private float distance;
-    static private int pos = -1;
+    private int pos = -1;
 
-    static private bool finished = false;
-    static private int timer = 0;
+    private bool finished = false;
+    private int timer = 0;
 
-    static bool right = false;
-    static bool left = false;
-    static bool started = true;
+    bool right = false;
+    bool left = false;
+    bool started = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +30,7 @@ public class WesternSpy_Movement : MonoBehaviour {
         if (pos != -1)
         {
             this.gameObject.transform.SetPositionAndRotation(new Vector3(pos * distance, 0, -10), new Quaternion(0, 0, 0, 1));
-            if (finished)
+            /*if (finished)
             {
                 if (pos == spawner.GetComponent<WesternSpy_Spawner>().getSpy())
                 {
@@ -44,9 +40,7 @@ public class WesternSpy_Movement : MonoBehaviour {
                 {
                     //loose.GetComponent<Renderer>().enabled = true;
                 }
-            }
-            instructions.GetComponent<Renderer>().enabled = !started;
-            instructionsText.GetComponent<GameUI>().deactivatePressE();
+            }*/
             //win.GetComponent<GameUI>().deactivatePressE();
             //loose.GetComponent<GameUI>().deactivatePressE();
 
@@ -67,10 +61,8 @@ public class WesternSpy_Movement : MonoBehaviour {
     {
         if (!finished)
         {
-            if (started)
-            {
-                instructionsText.GetComponent<GameUI>().deactivatePressE();
-                instructions.GetComponent<Renderer>().enabled = false;
+                //instructionsText.GetComponent<GameUI>().deactivatePressE();
+                //instructions.GetComponent<Renderer>().enabled = false;
                 float target = pos * distance;
                 gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(target, 0, -10), 0.1f);
                 if (Mathf.Abs(this.gameObject.transform.position.x - target) <= 0.02f)
@@ -117,18 +109,7 @@ public class WesternSpy_Movement : MonoBehaviour {
                     }
                     finished = true;
                 }
-            }
-            else
-            {
-                if (!Input.GetKey(KeyCode.Escape) && Input.anyKeyDown)
-                {
-                    started = true;
-                    left = true;
-                    right = true;
-                    instructionsText.GetComponent<GameUI>().deactivatePressE();
-                    instructions.GetComponent<Renderer>().enabled = false;
-                }
-            }
+            
         } else
         {
             timer++;
